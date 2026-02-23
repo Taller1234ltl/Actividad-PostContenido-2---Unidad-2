@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de registro HTML5 completo con validación nativa y accesibilidad para una plataforma de cursos online.">
+    <title>Registro - Plataforma de Cursos Online</title>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+    <h1>Registro de Estudiante</h1>
+    <p>Completa tus datos para crear tu cuenta en nuestra plataforma de cursos online.</p>
+    <hr>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main>
+    <form action="/registro" method="POST" autocomplete="on" aria-label="Formulario de registro de estudiante">
+
+        <!-- ================= INFORMACIÓN PERSONAL ================= -->
+        <fieldset>
+            <legend>Información Personal</legend>
+
+            <p>
+                <label for="nombre">Nombre *</label><br>
+                <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ej: Juan"
+                        required
+                        autofocus
+                        autocomplete="given-name">
+            </p>
+
+            <p>
+                <label for="apellido">Apellido *</label><br>
+                <input
+                        type="text"
+                        id="apellido"
+                        name="apellido"
+                        placeholder="Ej: García"
+                        required
+                        autocomplete="family-name">
+            </p>
+
+            <p>
+                <label for="email">Correo electrónico *</label><br>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="ejemplo@correo.com"
+                        required
+                        autocomplete="email">
+            </p>
+
+            <p>
+                <label for="telefono">Teléfono *</label><br>
+                <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="+57 300 123 4567"
+                        pattern="[+][0-9]{2} [0-9]{3} [0-9]{3} [0-9]{4}"
+                        required
+                        autocomplete="tel"
+                        aria-describedby="ayuda-telefono">
+                <small id="ayuda-telefono">Formato requerido: +57 300 123 4567</small>
+            </p>
+
+            <p>
+                <label for="fecha-nacimiento">Fecha de nacimiento *</label><br>
+                <input
+                        type="date"
+                        id="fecha-nacimiento"
+                        name="fecha_nacimiento"
+                        min="1940-01-01"
+                        max="2008-12-31"
+                        required
+                        autocomplete="bday">
+            </p>
+
+            <p>
+                <label for="edad">Edad *</label><br>
+                <input
+                        type="number"
+                        id="edad"
+                        name="edad"
+                        placeholder="Ej: 20"
+                        min="15"
+                        max="80"
+                        required
+                        aria-describedby="ayuda-edad">
+                <small id="ayuda-edad">Rango permitido: 15 a 80</small>
+            </p>
+
+            <fieldset>
+                <legend>Género *</legend>
+
+                <input type="radio" id="genero-m" name="genero" value="masculino" required>
+                <label for="genero-m">Masculino</label><br>
+
+                <input type="radio" id="genero-f" name="genero" value="femenino">
+                <label for="genero-f">Femenino</label><br>
+
+                <input type="radio" id="genero-o" name="genero" value="otro">
+                <label for="genero-o">Otro</label>
+            </fieldset>
+
+        </fieldset>
+
+        <!-- ================= CONFIGURACIÓN DE CUENTA ================= -->
+        <fieldset>
+            <legend>Configuración de Cuenta</legend>
+
+            <p>
+                <label for="usuario">Nombre de usuario *</label><br>
+                <input
+                        type="text"
+                        id="usuario"
+                        name="usuario"
+                        placeholder="Ej: Oriana"
+                        minlength="4"
+                        maxlength="20"
+                        required
+                        autocomplete="username">
+            </p>
+
+            <p>
+                <label for="password">Contraseña *</label><br>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Mínimo 8 caracteres"
+                        minlength="8"
+                        required
+                        autocomplete="new-password"
+                        aria-describedby="ayuda-password">
+                <small id="ayuda-password">Debe tener mínimo 8 caracteres.</small>
+            </p>
+
+            <p>
+                <label for="password-confirm">Confirmar contraseña *</label><br>
+                <input
+                        type="password"
+                        id="password-confirm"
+                        name="password_confirm"
+                        placeholder="Repite tu contraseña"
+                        minlength="8"
+                        required
+                        autocomplete="new-password">
+            </p>
+
+        </fieldset>
+
+        <!-- ================= INFORMACIÓN ACADÉMICA / ADICIONAL ================= -->
+        <fieldset>
+            <legend>Información Adicional</legend>
+
+            <p>
+                <label for="pais">País *</label><br>
+                <select id="pais" name="pais" required autocomplete="country-name">
+                    <option value="">Selecciona tu país</option>
+                    <option value="co">Colombia</option>
+                    <option value="mx">México</option>
+                    <option value="ar">Argentina</option>
+                    <option value="es">España</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="linkedin">Perfil (LinkedIn o sitio web)</label><br>
+                <input
+                        type="url"
+                        id="linkedin"
+                        name="perfil_url"
+                        placeholder="https://www.linkedin.com/in/tuusuario"
+                        autocomplete="url">
+            </p>
+
+            <p>
+                <label for="bio">Biografía breve</label><br>
+                <textarea
+                        id="bio"
+                        name="biografia"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Cuéntanos sobre ti (intereses, experiencia, objetivos)..."></textarea>
+            </p>
+
+        </fieldset>
+
+        <!-- ================= PREFERENCIAS ================= -->
+        <fieldset>
+            <legend>Preferencias</legend>
+
+            <p>Preferencia de contacto *</p>
+            <input type="radio" id="contacto-email" name="preferencia_contacto" value="email" required>
+            <label for="contacto-email">Correo</label><br>
+
+            <input type="radio" id="contacto-tel" name="preferencia_contacto" value="telefono">
+            <label for="contacto-tel">Teléfono</label>
+
+            <p>
+                <input type="checkbox" id="newsletter" name="newsletter" value="si">
+                <label for="newsletter">Deseo recibir notificaciones y novedades</label>
+            </p>
+
+            <p>
+                <input type="checkbox" id="terminos" name="terminos" value="si" required>
+                <label for="terminos">Acepto los términos y condiciones *</label>
+            </p>
+        </fieldset>
+
+        <!-- ================= BOTONES ================= -->
+        <p>
+            <button type="submit">Registrarse</button>
+            <button type="reset">Limpiar formulario</button>
+        </p>
+
+        <p><small>* Campos obligatorios</small></p>
+
+    </form>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <hr>
+    <p>&copy; 2026 Plataforma de Cursos Online</p>
+    <p>Soporte: <a href="mailto:soporte@plataforma.com">soporte@plataforma.com</a></p>
+</footer>
+
+</body>
+</html>
